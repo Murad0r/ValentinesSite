@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Valentine's Proposal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valentine Invitation</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <div class="container">
-        <div class="Mainprompt">
-            <img class="image" src="images/catflower.jpg"></img>
-            <h1 class="hh" id="name">Hey beautiful!</h1>
-            <p class="pp" id="question">Will you be my Valentine?</p>
-            <div class="buttons">
-                <button id="no-button" onclick="showMessage('No')">No</button>
-                <button onclick="showMessage('Yes')" id="yesButton">Yes</button>
-            </div>
-            <div class="hidden-message" id="no-message">
-                <p>Nice try, but you can't escape that easily!</p>
-            </div>
-            <div class="hidden-message" id="yes-message">
-                <p>YAY! See you on the 14th, babygirl.</p>
-            </div>
-        </div>
+  <!-- Landing Screen -->
+  <section id="landing" class="screen active" aria-label="Landing screen">
+    <div class="center">
+      <h1>To: Elmira Anne Y. Bumagat</h1>
+      <p>From: [Your Name] — a special invitation</p>
+      <div class="button-row" aria-label="Choices">
+        <button id="yesBtn" class="btn yes" type="button">Yes</button>
+        <button id="noBtn" class="btn no" type="button">No</button>
+      </div>
     </div>
-    <script src="script.js"></script>
-</body>
+  </section>
 
+  <!-- Invitation Screen (Yes clicked) -->
+  <section id="invitation" class="screen" aria-label="Invitation screen">
+    <div class="center invitation-content">
+      <h2>You're invited!</h2>
+      <p>Elmira, I would love to share a special moment with you. Join me for a [describe event/date].</p>
+      <!-- Optional: show image and a short message -->
+      <img id="invImage" src="assets/image.jpg" alt="A special image" />
+      <p class="closing">Love, [Your Name]</p>
+    </div>
+  </section>
+
+  <!-- Optional hidden audio element (will be controlled via JS) -->
+  <audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="script.js"></script>
+</body>
 </html>
