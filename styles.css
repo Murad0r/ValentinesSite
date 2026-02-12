@@ -1,24 +1,76 @@
 :root {
-  --bg: #0b0b1a;
-  --fg: #fff;
-  --accent: #ff4081;
-  --card: rgba(255, 255, 255, 0.08);
-  --shadow: 0 10px 25px rgba(0,0,0,.25);
+  /* Blue-themed palette */
+  --bg: #0a1b2a;          /* deep navy/blue-black for page background */
+  --bg-soft: #111b2b;     /* slightly lighter for panels if needed */
+  --fg: #e9f2ff;            /* near-white for readability on dark blues */
+  --muted: #b8d0f7;         /* light blue for secondary text */
+  --card: rgba(14, 36, 68, 0.28); /* translucent card with blue tint */
+  --accent: #4aa3ff;        /* primary blue accent */
+  --accent-2: #7bd3ff;      /* complementary blue/cyan for hover/gradients */
+  --shadow: 0 12px 28px rgba(0,0,0,.35);
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; background: #101018; color: #fff; }
 
-body { display: grid; place-items: center; overflow: hidden; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: #0b1b2a;
+  color: var(--fg);
+}
 
-.screen { display: none; width: 100%; height: 100%; padding: 2rem; position: absolute; top: 0; left: 0; background: #151522; }
-.screen.active { display: block; }
+body {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
 
-.center { max-width: 720px; margin: auto; text-align: center; padding: 2rem; }
-.center h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: #fff; }
-.center p { font-size: 1.1rem; color: #ddd; margin-bottom: 1.5rem; }
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    135deg,
+    #0b1b2a 0%,
+    #0a2133 60%,
+    #0b1b2a 100%
+  );
+}
 
-.button-row { display: inline-flex; gap: 1rem; align-items: center; justify-content: center; }
+.screen.active {
+  display: block;
+}
+
+.center {
+  max-width: 720px;
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.center h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
+}
+
+.center p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.button-row {
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
 
 .btn {
   appearance: none;
@@ -27,18 +79,36 @@ body { display: grid; place-items: center; overflow: hidden; }
   font-size: 1.1rem;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-  background: #1f1f3a;
-  color: #fff;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  background: linear-gradient(135deg, #1a2a44 0%, #122a63 100%);
+  color: #eaf4ff;
   box-shadow: 0 6px 14px rgba(0,0,0,.25);
 }
 
 .btn.yes {
-  background: linear-gradient(135deg, #ff5a7a, #ff2d87);
+  /* blue gradient with glow */
+  background: linear-gradient(135deg, #4a90ff 0%, #1a6aff 100%);
 }
 
 .btn.no {
-  background: linear-gradient(135deg, #2a2a3f, #1e1e2f);
+  /* muted blue/gray with blue tint */
+  background: linear-gradient(135deg, #1b2a44 0%, #133056 100%);
+}
+
+.btn:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 💖 ADDED: Landing GIF styling */
+.landing-gif {
+  width: 240px;
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
 }
 
 .invitation-content {
@@ -47,7 +117,8 @@ body { display: grid; place-items: center; overflow: hidden; }
   border-radius: 16px;
   background: var(--card);
   backdrop-filter: blur(2px);
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(110,150,255,.25);
+  color: var(--fg);
 }
 
 .invitation-content img {
@@ -55,11 +126,27 @@ body { display: grid; place-items: center; overflow: hidden; }
   height: auto;
   border-radius: 12px;
   margin-top: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
 }
 
-.closing { margin-top: 1rem; font-style: italic; }
+.closing {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #dbeaff;
+}
 
 @media (max-width: 700px) {
-  .center { padding: 1rem; }
-  .center h1 { font-size: 1.8rem; }
+  .center {
+    padding: 1rem;
+  }
+
+  .center h1 {
+    font-size: 1.8rem;
+  }
+
+  /* 💖 Responsive GIF */
+  .landing-gif {
+    width: 190px;
+    margin-bottom: 14px;
+  }
 }
